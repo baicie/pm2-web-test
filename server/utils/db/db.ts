@@ -3,7 +3,7 @@ import { User } from '../../entity';
 
 const connection = new DataSource({
   type: 'sqlite',
-  database: 'nodemon',
+  database: 'pm2-web',
   logging: false,
   entities: [User],
   synchronize: true,

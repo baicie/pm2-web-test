@@ -1,6 +1,7 @@
-- [ ] dev server
+- [X] dev server
 - [ ] build server tsup
 - [ ] static 
 - [ ] 路由重定向 /client
 - [ ] eslint?
 - [ ] vite build完善
+- [ ] dev css 样式丢失问题

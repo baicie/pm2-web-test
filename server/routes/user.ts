@@ -3,7 +3,7 @@ import { body } from 'express-validator';
 import { hasAdmin, createAdmin, login } from '../servers';
 import { defaultI18nWarpper } from '../utils/i18n-warpper';
 
-const router = Router();
+const router: Router = Router();
 
 router.get('/has_admin', hasAdmin);
 

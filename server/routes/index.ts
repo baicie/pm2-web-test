@@ -20,7 +20,7 @@ type errorType = {
 const router: Router = Router();
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+//@ts-ignore
 router.use(jwtAuth);
 
 router.use('/demo', demoRouter);
@@ -45,6 +45,8 @@ router.use((err: errorType, req: Request, res: Response) => {
     const errCode = (output && output.statusCode) || 500;
     const errMsg = err.message;
     const errData = err.data;
+    console.log('res', res);
+
     res.status(200).json({
       code: errCode,
       msg: errMsg,

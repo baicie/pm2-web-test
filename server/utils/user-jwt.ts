@@ -13,17 +13,19 @@ export const jwtAuth: unknown = expressjwt({
   credentialsRequired: true,
   algorithms: ['ES256'],
   // 自定义获取token的函数
-  // getToken: (req) => {
-  //   if (
-  //     req.headers.authorization &&
-  //     req.headers.authorization.split(' ')[0] === 'Bearer'
-  //   ) {
-  //     return req.headers.authorization.split(' ')[1];
-  //   } else if (req.headers && req.headers['token']) {
-  //     return req.headers['token'];
-  //   }
-  //   return undefined;
-  // },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
+  getToken: (req) => {
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.split(' ')[0] === 'Bearer'
+    ) {
+      return req.headers.authorization.split(' ')[1];
+    } else if (req.headers && req.headers['token']) {
+      return req.headers['token'];
+    }
+    return undefined;
+  },
   // 设置jwt认证白名单，比如/api/login登录接口不需要拦截
 }).unless({
   path: [
@@ -36,6 +38,7 @@ export const jwtAuth: unknown = expressjwt({
     '/api/pm2/list',
     '/api/pm2/stop',
     '/api/pm2/reload',
+    '/api/pm2/delete',
   ],
 });
 
@@ -60,3 +63,8 @@ export function jwtSign(userId: string, role: UserRoleType) {
     },
   );
 }
+
+module.exports = {
+  jwtAuth,
+  decode,
+};

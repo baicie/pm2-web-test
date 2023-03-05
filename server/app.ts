@@ -6,7 +6,9 @@ import bodyParser from 'body-parser';
 import i18n from 'i18n';
 import cors from 'cors';
 import config from './pm2-web';
-// import moduleName from '';
+import path from 'path';
+import connectHistoryApiFallback from 'connect-history-api-fallback';
+
 console.log('svg', process.argv[2]);
 
 const isDev = process.argv[2] === 'dev';
@@ -20,6 +22,16 @@ i18n.configure({
 });
 
 const app = express();
+
+app.use(
+  '/',
+  connectHistoryApiFallback({
+    index: path.join(__dirname, '../static/index.html'),
+    rewrites: [
+      { from: /\/client/, to: path.join(__dirname, '../static/index.html') },
+    ],
+  }),
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,13 +51,22 @@ app.use('/api', routers);
 // static client
 if (!isDev) {
   app.get('/client', function (req, res) {
+    console.log(req.path);
+
     res.sendFile(config.WEBROOT_STATIC + 'index.html');
   });
-  app.use(
-    '/assets',
-    express.static('../static/assets', { index: 'index.html' }),
-  );
+
+  app.use('/client', express.static(path.join(__dirname, '../static')));
 }
+// 指向首页
+// app.use((req, res, next) => {
+//   if (/^\/(?!api)[a-zA-Z0-9\/\-_]*$/.test(req.path)) {
+//     req.path = '/client';
+//     next();
+//   } else {
+//     next();
+//   }
+// });
 
 connection
   .initialize()

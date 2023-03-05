@@ -1,17 +1,22 @@
 import { createApp } from 'vue';
-import './style.css';
 import App from './App.vue';
-
-import ElementPlus from 'element-plus';
+import BcComponents from './components';
+import I18 from './languages/index';
+import router from './routes';
+import { pinia } from './store';
+import './style.css';
+import './theme/index';
 import 'element-plus/dist/index.css';
-// import { pinia } from './store';
-// import router from './routes';
+
 const app = createApp(App);
-
-app.use(ElementPlus);
-
-// app.use(pinia);
-
-// app.use(router);
+// pinia 状态
+app.use(pinia);
+// const router = createRouter();
+// 路由
+app.use(router);
+// UI
+// app.use(Antd);
+// 国际化
+app.use(I18);
 
 app.mount('#app');
