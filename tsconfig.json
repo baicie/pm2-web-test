@@ -3,8 +3,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["ESNext"],
-    "module": "commonjs",
-    "target": "ESNext",
+    "module": "CommonJS",
+    "rootDir": "./server",
+    "target": "ES5",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -21,11 +22,11 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "importsNotUsedAsValues": "error",
     "checkJs": true,
-    "baseUrl": "server",
-    "outDir": "dist",
-    "composite": true
+    "outDir": "./static",
+    "composite": true,
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"]
+  "exclude": ["./node_modules", "./client/**"],
+  "include": ["server/**/*.ts", "server/**/*.d.ts"]
 }

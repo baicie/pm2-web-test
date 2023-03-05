@@ -1,0 +1,6 @@
+- [ ] dev server
+- [ ] build server tsup
+- [ ] static 
+- [ ] 路由重定向 /client
+- [ ] eslint?
+- [ ] vite build完善

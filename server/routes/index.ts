@@ -19,6 +19,8 @@ type errorType = {
 
 const router: Router = Router();
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 router.use(jwtAuth);
 
 router.use('/demo', demoRouter);

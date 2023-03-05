@@ -60,8 +60,3 @@ export function jwtSign(userId: string, role: UserRoleType) {
     },
   );
 }
-
-module.exports = {
-  jwtAuth,
-  decode,
-};

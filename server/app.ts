@@ -5,6 +5,11 @@ import routers from './routes';
 import bodyParser from 'body-parser';
 import i18n from 'i18n';
 import cors from 'cors';
+import config from './pm2-web';
+// import moduleName from '';
+console.log('svg', process.argv[2]);
+
+const isDev = process.argv[2] === 'dev';
 
 i18n.configure({
   locales: ['en', 'zh-cn'], // 声明包含语言
@@ -23,11 +28,24 @@ app.use(cors());
 
 app.use(i18n.init);
 
+// test
 app.get('/', (req, res) => {
   res.send(res.__('hello'));
 });
 
+// server
 app.use('/api', routers);
+
+// static client
+if (!isDev) {
+  app.get('/client', function (req, res) {
+    res.sendFile(config.WEBROOT_STATIC + 'index.html');
+  });
+  app.use(
+    '/assets',
+    express.static('../static/assets', { index: 'index.html' }),
+  );
+}
 
 connection
   .initialize()
@@ -39,5 +57,5 @@ connection
   });
 
 app.listen(6174, () => {
-  console.log('Server is running at 6174');
+  console.log('Server is running at http://localhost:6174');
 });
