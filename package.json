@@ -1,6 +1,6 @@
 {
   "name": "@baicie/pm2-web",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "pm2 web server",
   "type": "commonjs",
   "author": "baicie",
