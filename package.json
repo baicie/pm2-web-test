@@ -1,6 +1,6 @@
 {
   "name": "@baicie/pm2-web",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "pm2 web server",
   "type": "commonjs",
   "author": "baicie",
@@ -22,7 +22,7 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "prepare": "husky install",
-    "publish": "bumpp --commit --tag --push"
+    "publish": "bumpp"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
