@@ -21,7 +21,7 @@ const router: Router = Router();
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
-router.use(jwtAuth);
+// router.use(jwtAuth);
 
 router.use('/demo', demoRouter);
 
@@ -29,30 +29,31 @@ router.use('/user', userRouter);
 
 router.use('/pm2', pm2Router);
 
-router.use((err: errorType, req: Request, res: Response) => {
-  // 自定义用户认证失败的错误返回
-  // console.log("err===", JSON.stringify(err));
-  if (err && err.name === 'UnauthorizedError') {
-    const { status = 401 } = err;
-    // 抛出401异常
-    res.status(200).json({
-      code: status,
-      msg: 'token失效，请重新登录',
-      data: null,
-    });
-  } else {
-    const { output } = err || {};
-    const errCode = (output && output.statusCode) || 500;
-    const errMsg = err.message;
-    const errData = err.data;
-    console.log('res', res);
+// router.use((err: errorType, req: Request, res: Response) => {
+//    router.use((err: errorType, req: Request, res: Response) => {
+//   // 自定义用户认证失败的错误返回
+//   // console.log("err===", JSON.stringify(err));
+//   if (err && err.name === 'UnauthorizedError') {
+//     const { status = 401 } = err;
+//     // 抛出401异常
+//     res.status(200).json({
+//       code: status,
+//       msg: 'token失效，请重新登录',
+//       data: null,
+//     });
+//   } else {
+//     const { output } = err || {};
+//     const errCode = (output && output.statusCode) || 500;
+//     const errMsg = err.message;
+//     const errData = err.data;
+//     console.log('res', res);
 
-    res.status(200).json({
-      code: errCode,
-      msg: errMsg,
-      data: errData,
-    });
-  }
-});
+//     res.status(200).json({
+//       code: errCode,
+//       msg: errMsg,
+//       data: errData,
+//     });
+//   }
+// });
 
 export default router;

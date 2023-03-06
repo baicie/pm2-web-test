@@ -7,7 +7,8 @@ import i18n from 'i18n';
 import cors from 'cors';
 import config from './pm2-web';
 import path from 'path';
-import connectHistoryApiFallback from 'connect-history-api-fallback';
+import history from 'connect-history-api-fallback';
+import fs from 'fs-extra';
 
 console.log('svg', process.argv[2]);
 
@@ -23,15 +24,7 @@ i18n.configure({
 
 const app = express();
 
-app.use(
-  '/',
-  connectHistoryApiFallback({
-    index: path.join(__dirname, '../static/index.html'),
-    rewrites: [
-      { from: /\/client/, to: path.join(__dirname, '../static/index.html') },
-    ],
-  }),
-);
+app.use(history());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,33 +33,53 @@ app.use(cors());
 
 app.use(i18n.init);
 
-// test
-app.get('/', (req, res) => {
-  res.send(res.__('hello'));
+app.use('/', (req, res, next) => {
+  if (req.url.startsWith('/api')) {
+    next();
+  } else {
+    let pathName = req.url;
+    const url = pathName.split('/');
+    console.log('pathName', pathName);
+    // 提供一个 icon就不会发起/favicon.ico的请求了
+    if (pathName == '/client') {
+      pathName = '/index.html';
+    } else if (url.length > 2 && url[1] === 'client') {
+      pathName = url.join('/').replace('/client', '');
+    }
+
+    const extName = path.extname(pathName);
+    fs.readFile(`./static${pathName}`, function (err, data) {
+      if (err) {
+        console.error(err);
+        res.status(400).json(err);
+      } else {
+        const ext = getExt(extName);
+        res.writeHead(200, { 'Content-Type': ext + '; charset=utf-8' });
+        res.write(data);
+      }
+      res.end();
+    });
+  }
 });
 
-// server
 app.use('/api', routers);
 
-// static client
-if (!isDev) {
-  app.get('/client', function (req, res) {
-    console.log(req.path);
-
-    res.sendFile(config.WEBROOT_STATIC + 'index.html');
-  });
-
-  app.use('/client', express.static(path.join(__dirname, '../static')));
-}
-// 指向首页
-// app.use((req, res, next) => {
-//   if (/^\/(?!api)[a-zA-Z0-9\/\-_]*$/.test(req.path)) {
-//     req.path = '/client';
-//     next();
-//   } else {
-//     next();
-//   }
-// });
+const getExt = (extName) => {
+  switch (extName) {
+    case '.html':
+      return 'text/html';
+    case '.css':
+      return 'text/css';
+    case '.js':
+      return 'application/javascript';
+    case '.ico':
+      return 'image/x-icon';
+    case '.png':
+      return 'image/png';
+    default:
+      return 'text/html';
+  }
+};
 
 connection
   .initialize()
