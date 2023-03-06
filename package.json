@@ -29,7 +29,7 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "prepare": "husky install",
-    "pub": "bumpp --commit --push --tag && pnpm publish"
+    "pub": "bumpp --commit --push --tag && npm publish"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
