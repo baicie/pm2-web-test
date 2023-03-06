@@ -7,7 +7,7 @@ export class User {
   userid!: string;
 
   @Column()
-  role!: UserRoleType;
+  role!: 'admin' | 'editor' | 'ghost';
 
   @Column()
   username!: string;

@@ -1,0 +1,14 @@
+.layout[data-v-48f5dc9a] {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.layot_header[data-v-48f5dc9a] {
+  background-color: var(--bc-primary-color);
+  box-shadow: 0 2px 8px #f0f1f2;
+  z-index: 100;
+}
+[data-v-3c292cd4] .ant-form-item-control-input-content {
+  display: flex;
+  justify-content: center;
+}

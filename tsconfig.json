@@ -2,10 +2,10 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["ESNext","DOM"],
+    "lib": ["ESNext", "DOM"],
     "module": "CommonJS",
     "rootDir": "./server",
-    "target": "ES5",
+    "target": "ES6",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

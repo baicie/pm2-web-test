@@ -1,0 +1,205 @@
+
+.logo[data-v-700a0fd7] {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo[data-v-700a0fd7]:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue[data-v-700a0fd7]:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
+}
+:root {
+  --bc-primary-color: white;
+  --bc-header-color: #001529;
+}
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --bc-border-radius: 4px;
+}
+.bc-page {
+  background-color: var(--bc-primary-color);
+  border-radius: var(--bc-border-radius);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 40px;
+}
+#footer[data-v-68494f02] {
+  clear: both;
+  font-size: 14px;
+  background-color: #000;
+  position: relative;
+  z-index: 8;
+  margin-left: -1px;
+  color: #ffffffa6;
+  line-height: 64px;
+}
+
+#header {
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+}
+.adblock-banner,
+.alert-banner {
+  position: relative;
+  z-index: 100;
+  padding: 16px;
+  line-height: 28px;
+  color: #8590a6;
+  text-align: center;
+  background-color: #ebebeb;
+}
+.alert-banner {
+  background-color: var(--ant-primary-color);
+  color: #fff;
+  padding: 5px;
+}
+.alert-banner a {
+  color: #fff;
+  text-decoration: underline;
+}
+.alert-banner .close-icon {
+  top: 12px;
+}
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.menu-row {
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+  line-height: 64px;
+}
+.drawer-handle {
+  position: absolute;
+  width: 41px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 2px 0 8px #00000026;
+}
+.quit {
+  line-height: 64px;
+  padding-right: 64px;
+}
+.toc-affix[data-v-a30364cf] .ant-anchor {
+  font-size: 12px;
+  max-width: 110px;
+}
+.toc-affix[data-v-a30364cf] .ant-anchor .ant-anchor-link {
+  border-left: 2px solid #f0f0f0;
+  padding: 4px 0 4px 16px;
+}
+.toc-affix[data-v-a30364cf] .ant-anchor .ant-anchor-link-active {
+  border-left: 2px solid #1890ff;
+}
+.toc-affix[data-v-a30364cf] .ant-anchor .ant-anchor-ink::before {
+  display: none;
+}
+.toc-affix[data-v-a30364cf] .ant-anchor .ant-anchor-ink-ball {
+  display: none;
+}
+[data-theme='dark'] .toc-affix[data-v-a30364cf] .ant-anchor .ant-anchor-link {
+  border-left: 2px solid #303030;
+}
+[data-theme='dark'] .toc-affix[data-v-a30364cf] .ant-anchor .ant-anchor-link-active {
+  border-left: 2px solid #177ddc;
+}
+.fixed-widgets[data-v-a30364cf] {
+  position: fixed;
+  right: 32px;
+  bottom: 102px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.fixed-widgets .fixed-widgets-avatar[data-v-a30364cf] {
+  color: #000;
+  background-color: #fff;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+  transition: color 0.3s;
+}
+.main-container[data-v-a30364cf] {
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  position: relative;
+  min-height: 500px;
+  padding: 0 170px 32px 64px;
+  background: #fff;
+}
+@media only screen and (max-width: 992px) {
+.main-container[data-v-a30364cf] {
+    padding-right: 48px;
+    padding-left: 48px;
+}
+.main-container .toc-affix[data-v-a30364cf] {
+    display: none;
+}
+.code-boxes-col-2-1[data-v-a30364cf],
+  .code-boxes-col-1-1[data-v-a30364cf] {
+    float: none;
+    width: 100%;
+}
+}
+.is-mobile[data-v-a30364cf],
+.main-container[data-v-a30364cf] {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.is-mobile > .markdown > *[data-v-a30364cf],
+.main-container > .markdown > *[data-v-a30364cf] {
+  width: 100% !important;
+}
+#app {
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bc-primary-color: white;
+  --bc-header-color: #001529;
+}
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --bc-border-radius: 4px;
+}

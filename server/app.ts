@@ -39,8 +39,6 @@ app.use('/', (req, res, next) => {
   } else {
     let pathName = req.url;
     const url = pathName.split('/');
-    console.log('pathName', pathName);
-    // 提供一个 icon就不会发起/favicon.ico的请求了
     if (pathName == '/client') {
       pathName = '/index.html';
     } else if (url.length > 2 && url[1] === 'client') {

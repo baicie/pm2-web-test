@@ -19,4 +19,6 @@ app.use(router);
 // 国际化
 app.use(I18);
 
+app.use(BcComponents);
+
 app.mount('#app');

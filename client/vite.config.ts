@@ -54,8 +54,6 @@ export default defineConfig({
         entryFileNames: 'assets/js/[name].[hash].js',
         assetFileNames: 'assets/[ext]/[name].[hash].[ext]',
         manualChunks(id) {
-          console.log('id', id);
-
           if (id.includes('node_modules')) {
             if (id.includes('.pnpm')) {
               return id
