@@ -1,6 +1,6 @@
 {
   "name": "@baicie/pm2-web",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "pm2 web server",
   "type": "commonjs",
   "author": "baicie",
@@ -10,6 +10,13 @@
     "bin",
     "nodemon.prod.json"
   ],
+  "bin": {
+    "pm2-web": "bin/pm2-web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baicie/pm2-web"
+  },
   "scripts": {
     "dev-server": "nodemon --config nodemon.json dev",
     "dev-client": "vite --config ./client/vite.config.ts",
@@ -22,7 +29,7 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "prepare": "husky install",
-    "publish": "bumpp"
+    "pub": "bumpp"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
